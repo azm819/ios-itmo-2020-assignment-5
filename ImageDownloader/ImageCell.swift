@@ -13,6 +13,8 @@ class ImageCell: UITableViewCell {
         imageDownloadOperation?.cancel()
         imageDownloadOperation = imageDownloader.image(by: imageUrl) { [weak self] image in
             self?.imageView?.image = image
+            self?.setNeedsLayout()
+            self?.layoutIfNeeded()
         }
     }
 
